@@ -196,13 +196,13 @@ function App() {
           <div className="row d-flex flex-wrap row-gap-2">
             {productList.map(product => (
               <div key={product.id} className="column">
-                <a onClick={() => { handleOpenModal(product) }}
+                <a onClick={(e) => { e.preventDefault(); handleOpenModal(product) }}
                   className="card product-card btn-gray-outlined-hover">
-                  <div type='button' className='position-relative'>
+                  <div className='position-relative'>
                     <img src={product.imageUrl} className="card-img-top product-card-img" alt={product.title} />
                     <button type="button" className='btn-gray-outlined position-absolute bottom-0 start-50 translate-middle-x mb-2'>加入購物車</button>
                   </div>
-                  <div type="button" className="card-body">
+                  <div className="card-body">
                     <h6 className='mb-2 text-truncate'>{product.title}</h6>
                     <p className='mb-2'>商品內容：{product.content}</p>
                     <p className="fs-lg text-secondary-700 fw-semibold">NT$ {product.price} /罐</p>
@@ -227,13 +227,13 @@ function App() {
             <div className="container py-3">
               <div className="row">
                 <div className="col-1">
-                  <a onClick={() => { setMainImage(tempProduct.imageUrl) }}
-                    type='button' className='mb-2'>
+                  <a onClick={(e) => { e.preventDefault(); setMainImage(tempProduct.imageUrl) }}
+                     className='mb-2'>
                     <img className='product-card-img' src={tempProduct.imageUrl} alt={tempProduct.title} />
                   </a>
                   {tempProduct.imagesUrl?.map(image => (
-                    <a onClick={() => { setMainImage(image) }}
-                      type='button' key={image} className='mb-2'>
+                    <a onClick={(e) => { e.preventDefault(); setMainImage(image) }}
+                     key={image} className='mb-2'>
                       <img className='product-card-img' src={image} alt={tempProduct.title} />
                     </a>
                   ))}
