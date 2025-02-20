@@ -459,6 +459,7 @@ function App() {
                   留言
                 </label>
                 <textarea
+                  {...register('message')}
                   id="message"
                   className="form-control"
                   cols="30"
